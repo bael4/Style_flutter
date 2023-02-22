@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hair_style/settings.dart';
 import 'package:hair_style/settings_sound.dart';
 import 'package:hair_style/hair_stylist.dart';
+import 'package:hair_style/shoppingList/main_shopping.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -12,6 +13,7 @@ void main() {
       '/settings': (context) => const Settings(),
       '/settings_sound': (context) => const SettingsSound(),
       '/hair_style': (context) => const HairStylist(),
+      '/shopping_list': (context) => const MainShopping(),
     },
   ));
 }
@@ -49,6 +51,17 @@ class Main extends StatelessWidget {
               },
               icon: const Icon(Icons.shopify_outlined),
               label: const Text('style'),
+            ),
+            TextButton.icon(
+              style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Colors.black),
+                foregroundColor: MaterialStatePropertyAll(Colors.white),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/shopping_list');
+              },
+              icon: const Icon(Icons.shopping_cart),
+              label: const Text('Shopping'),
             )
           ],
         ),
